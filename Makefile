@@ -89,14 +89,14 @@ csp: cspserver
 # Start the local web server
 server: stop convert
 	@echo "Starting server..."
-	@nohup bundle exec jekyll serve -H 127.0.0.1 -P $(PORT) > $(LOG_FILE) 2>&1 & \
+	@nohup /usr/bin/env LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 bundle exec jekyll serve -H 127.0.0.1 -P $(PORT) > $(LOG_FILE) 2>&1 & \
 		PID=$$!; \
 		echo "Server PID: $$PID"
 	@until [ -f $(LOG_FILE) ]; do sleep 1; done
 
 cspserver: stop cspconvert
 	@echo "Starting server..."
-	@nohup bundle exec jekyll serve -H 127.0.0.1 -P $(PORT) > $(LOG_FILE) 2>&1 & \
+	@nohup /usr/bin/env LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 bundle exec jekyll serve -H 127.0.0.1 -P $(PORT) > $(LOG_FILE) 2>&1 & \
 		PID=$$!; \
 		echo "Server PID: $$PID"
 	@until [ -f $(LOG_FILE) ]; do sleep 1; done
