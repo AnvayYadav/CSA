@@ -1,6 +1,6 @@
 # Configuration, override port with usage: make PORT=4610
 PORT ?= 4600
-REPO_NAME ?= student
+REPO_NAME ?= personal_CSA
 LOG_FILE = /tmp/jekyll$(PORT).log
 
 SHELL = /bin/bash -c
@@ -89,17 +89,17 @@ csp: cspserver
 # Start the local web server
 server: stop convert
 	@echo "Starting server..."
-	@@nohup bundle exec jekyll serve -H 127.0.0.1 -P $(PORT) > $(LOG_FILE) 2>&1 & \
+	@nohup bundle exec jekyll serve -H 127.0.0.1 -P $(PORT) > $(LOG_FILE) 2>&1 & \
 		PID=$$!; \
 		echo "Server PID: $$PID"
-	@@until [ -f $(LOG_FILE) ]; do sleep 1; done
+	@until [ -f $(LOG_FILE) ]; do sleep 1; done
 
 cspserver: stop cspconvert
 	@echo "Starting server..."
-	@@nohup bundle exec jekyll serve -H 127.0.0.1 -P $(PORT) > $(LOG_FILE) 2>&1 & \
+	@nohup bundle exec jekyll serve -H 127.0.0.1 -P $(PORT) > $(LOG_FILE) 2>&1 & \
 		PID=$$!; \
 		echo "Server PID: $$PID"
-	@@until [ -f $(LOG_FILE) ]; do sleep 1; done
+	@until [ -f $(LOG_FILE) ]; do sleep 1; done
 
 # Convert .ipynb files to Markdown with front matter
 convert: $(MARKDOWN_FILES)
@@ -133,10 +133,10 @@ clean: stop
 stop:
 	@echo "Stopping server..."
 	@# kills process running on port $(PORT)
-	@@lsof -ti :$(PORT) | xargs kill >/dev/null 2>&1 || true
+	@lsof -ti :$(PORT) | xargs kill >/dev/null 2>&1 || true
 	@echo "Stopping logging process..."
 	@# kills previously running logging processes
-	@@ps aux | awk -v log_file=$(LOG_FILE) '$$0 ~ "tail -f " log_file { print $$2 }' | xargs kill >/dev/null 2>&1 || true
+	@ps aux | awk -v log_file=$(LOG_FILE) '$$0 ~ "tail -f " log_file { print $$2 }' | xargs kill >/dev/null 2>&1 || true
 	@# removes log
 	@rm -f $(LOG_FILE)
 
