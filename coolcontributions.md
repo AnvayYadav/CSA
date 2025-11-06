@@ -27,6 +27,8 @@ permalink: /coolcontributions
 
 ### Brief Analytics
 
+Mr Mortensen instructed use to keep track of our analytics from October 24th till Night at the Museum. As per his request, the below screenshots show my contributions to my teams repositories'.
+
 <img width="1161" height="334" alt="Image" src="https://github.com/user-attachments/assets/dddb37a9-7fd3-428a-b9de-36517f207a03" />
 
 <img width="1125" height="344" alt="Image" src="https://github.com/user-attachments/assets/c5ca7e43-779a-4108-8db6-48fdf30a3482" />
@@ -36,3 +38,5 @@ permalink: /coolcontributions
 <img width="1051" height="310" alt="Image" src="https://github.com/user-attachments/assets/f66b11ac-138c-4996-a55a-9df033bd9586" />
 
 <img width="1124" height="314" alt="Image" src="https://github.com/user-attachments/assets/c8560e4f-5edb-4469-932d-92b726673536" />
+
+### A grand total of 12 contributions in that time window.
