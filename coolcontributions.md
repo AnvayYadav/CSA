@@ -12,13 +12,26 @@ permalink: /coolcontributions
 
 <img width="806" height="604" alt="Image" src="https://github.com/user-attachments/assets/fb4cd1fd-ad46-4f33-8368-6cd07cafd9c6" />
 
+This function implements the core search functionality that allows users to filter a dataset by multiple optional criteria simultaneously. When a user enters values in any combination of the four search fields (location, industry, minimum experience, skill), the function filters the users array using JavaScript's .filter() method with compound boolean logic. Each condition is only applied if the user provided input for that field, creating a flexible search experience. The function uses case-insensitive string matching (.toLowerCase()) for location and industry, numeric comparison for the experience threshold, and array searching with .some() and .includes() for skills. After filtering, it resets pagination to page 0 and calls renderResults() to display the filtered data.
+
 <img width="527" height="664" alt="Image" src="https://github.com/user-attachments/assets/242ef0eb-dc4f-4fdd-bc7d-d6b20100a73a" /> 
 
+What it does:
+This function translates user-selected checkboxes and form inputs into actual Spring Data JPQL query syntax in real-time. It's an educational tool that demonstrates how backend queries are constructed. As users check boxes (useLocation, useIndustry, useSkill) and fill corresponding input fields, the function conditionally builds two arrays: parts[] for WHERE clause fragments and params[] for named parameters. For example, if the location checkbox is checked and has a value, it adds "u.location = :location" to the parts array and location="${loc}" to the params array. The output displays both the complete JPQL query (SELECT u FROM User u WHERE ${where}) and the equivalent Spring Data Specification chain syntax (Specification.where(spec1()).and(spec2())), teaching students how frontend filters map to backend code.
+
 <img width="916" height="511" alt="Image" src="https://github.com/user-attachments/assets/d6a52a0a-cb2e-44db-9938-5d2e009c2faf" /> 
+
+What it does:
+This function grades a multiple-choice quiz by comparing user selections (stored in the selections object) against correct answers stored in the quiz array. It loops through each question, applies CSS classes ("correct" in green, "incorrect" in red) to visually highlight results using DOM manipulation, calculates the total score and percentage, and displays explanations for each question. The visual feedback is immediate—no page reload required. The function uses querySelectorAll() to find all quiz option elements by their data-q attribute (question index), then adds/removes CSS classes based on whether the user's selection matches the correct answer index. After grading, it generates an HTML summary showing the score as both a fraction and percentage, followed by explanation text for each question pulled from the quiz[idx].expl property.
+
 
 ### Sprint 3 Microblog work
 
 <img width="884" height="600" alt="Image" src="https://github.com/user-attachments/assets/2f30d453-2ee4-492e-a19b-c81a65c724dd" />
+
+The committed code adds backend support for managing emoji reactions on microblog posts. It introduces helper methods that safely retrieve and count reactions (get_reactions, get_reaction_counts), check if a specific user has already reacted (user_has_reacted), and toggle reactions on or off (toggle_reaction). Together, these functions allow users to seamlessly add or remove emoji reactions on posts while keeping the stored JSON data consistent and preventing duplicates—essentially enabling a complete, reliable “like/react” system within the microblog model.
+
+#### Postman Testing
 
 <img width="891" height="688" alt="Image" src="https://github.com/user-attachments/assets/da22a0ab-cc2e-4eb2-9174-208e5700fa09" />
 

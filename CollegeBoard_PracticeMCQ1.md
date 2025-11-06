@@ -44,10 +44,15 @@ The string is "abbcdddeff". So when I trace through comparing adjacent character
 
 Right Answer Procedure:
 Start with int[4][3] → 4 rows, 3 columns, all initialized to 0.
+
 The condition if (r == c) only triggers on diagonal positions:
+
 r=0, c=0: my2Darr[0][0] = 0
+
 r=1, c=1: my2Darr[1][1] = 1
+
 r=2, c=2: my2Darr[2][2] = 2
+
 r=3: no c=3 exists (columns only go 0-2)
 
 I misunderstood the r == c condition, and was confused dealing with 2d arrays. Didn't recognize r == c specifically targets only the main diagonal elements where the row index equals column index.
@@ -58,8 +63,11 @@ I misunderstood the r == c condition, and was confused dealing with 2d arrays. D
 
 Right answer:
 Start: str = "lookout", target = "o", j = 1 (first 'o')
+
 Iteration 1: Print str.substring(1) → "ookout ", then str = str.substring(1) → "ookout", then j = str.indexOf("o") → j = 0
+
 Iteration 2: Print str.substring(0) → "okout ", then str = str.substring(1) → "okout", then j = str.indexOf("o") → j = 0
+
 Iteration 3: Print str.substring(0) → "out ", then str = str.substring(1) → "kout", then j = str.indexOf("o") → j = -1
 
 Mistake:
@@ -70,14 +78,22 @@ I didn't trace through enough iterations. The loop continues as long as j >= 0, 
 
 Right answer:
 
-Arrays are passed by reference, so modifications persist. Start: {0, 0, 0, 0}. First call sets numArr[1] = 1 → {0, 1, 0, 0}. Second call sets numArr[3] = 3 → {0, 1, 0, 3}.
+Arrays are passed by reference, so modifications persist. 
+
+Start: {0, 0, 0, 0}. 
+
+First call sets numArr[1] = 1 → {0, 1, 0, 0}. 
+
+Second call sets numArr[3] = 3 → {0, 1, 0, 3}.
 
 <img width="959" height="724" alt="Image" src="https://github.com/user-attachments/assets/f316fae1-4254-4ac3-8737-4fe471067f97" />
 
 Right answer:
 
 Array: {10, 10, 10, 20, 20, 30, 40, 50, 50, 60, 80}, Target: 10
+
 Call 1: low=0, high=10, mid=5, elements[5]=30, 10<30 → search left (0,4)
+
 Call 2: low=0, high=4, mid=2, elements[2]=10 → Match found, return 2
 
 ### Concepts I Need to Improve:
@@ -94,7 +110,7 @@ Call 2: low=0, high=4, mid=2, elements[2]=10 → Match found, return 2
 - Object-oriented design principles, understanding encapsulation (private instance variables with public getter methods) and proper class structure
 - Algorithm correctness and edge cases**: Identifying when initialization values cause failures with specific input ranges 
 - Understanding Math.random() ranges and how to scale/shift to get desired integer ranges with casting
-- Understanding  static variables are shared across all class instances and tracking which constructors modify them
+- Understanding static variables are shared across all class instances and tracking which constructors modify them
 - Any Boolean Logic related questions
 - Understanding how changing loop conditions affects when loops terminate and what values remain
 
